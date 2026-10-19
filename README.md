@@ -1,16 +1,25 @@
-## Hi there 👋
+# フェリスの自己紹介ページ
 
-<!--
-**fyeris/Fyeris** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+カオス理論（ローレンツ・アトラクタ）で動く自己紹介ページです。
 
-Here are some ideas to get you started:
+公開URL: `https://ユーザー名.github.io/リポジトリ名/`
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## ファイル
+- `index.html` … トップページ
+- `detail.html` … 詳細ページ（内容は中の `D = {...}` を編集）
+- `.nojekyll` … GitHub Pagesにそのまま公開するための空ファイル
+
+## 公開方法（コマンド1回）
+GitHub CLI（`gh`）を使う場合、このフォルダで次を実行します。
+
+```bash
+git init -b main && git add . && git commit -m "init"
+gh repo create felis-site --public --source=. --push
+gh api -X POST repos/{owner}/felis-site/pages -f "source[branch]=main" -f "source[path]=/"
+```
+
+1〜2分後に `https://ユーザー名.github.io/felis-site/` で開けます。
+
+## 公開方法（ブラウザだけ）
+1. リポジトリにファイルをアップロードする
+2. Settings → Pages → Branch を `main` / `(root)` にして Save
